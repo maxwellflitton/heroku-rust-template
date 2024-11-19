@@ -5,7 +5,7 @@ esbuild.build({
     plugins: [cssModulesPlugin()],
     entryPoints: ['src/index.tsx'],
     bundle: true,
-    outfile: 'public/bundle.js',
+    outfile: 'dist/bundle.js',
     format: 'esm',
     define: {
       'process.env.NODE_ENV': '"production"',

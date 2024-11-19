@@ -21,3 +21,4 @@ Cargo.lock
 .idea/
 .DS_Store
 frontend/node_modules/
+rust-server/target/
