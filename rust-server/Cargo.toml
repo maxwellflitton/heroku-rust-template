@@ -1,0 +1,11 @@
+[workspace]
+resolver = "2"
+
+members = [
+    "core",
+    "data-access-layer",
+    "networking/actix-server",
+    "networking/axum-server",
+    "networking/rocket-server",
+    "networking/hyper-server"
+]

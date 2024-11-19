@@ -1,0 +1,12 @@
+[package]
+name = "core"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+data-access-layer = { path = "../data-access-layer" }
+serde = { version = "1.0.215", features = ["derive"] }
+nanoservices-utils = "0.1.6"
+
+[dev-dependencies]
+tokio = { version = "1.39.1", features = ["full"] }

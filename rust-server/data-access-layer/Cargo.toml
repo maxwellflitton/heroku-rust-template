@@ -1,0 +1,22 @@
+[package]
+name = "data-access-layer"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+json-file = ["serde_json"]
+sqlx-postgres = ["sqlx", "once_cell"]
+
+[dependencies]
+serde ={ version="1.0.197", features = ["derive"] }
+nanoservices-utils = "0.1.6"
+
+# for json-file
+serde_json ={ version="1.0.114", optional = true }
+
+# for sqlx-postgres
+sqlx = { version = "0.8.2", features = ["postgres", "json", "runtime-tokio"], optional = true }
+once_cell = { version = "1.19.0", optional = true }
+
+[dev-dependencies]
+tokio = { version = "1.41.1", features = ["full"] }
