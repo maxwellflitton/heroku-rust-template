@@ -13,5 +13,4 @@ npm install
 npm run build
 cd ..
 cargo clean
-cargo run
 cargo run -p actix-to-do-server --release

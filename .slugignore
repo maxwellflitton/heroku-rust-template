@@ -1,0 +1,10 @@
+debug/
+target/
+Cargo.lock
+**/*.rs.bk
+*.pdb
+.idea/
+.DS_Store
+frontend/node_modules/
+frontend/dist/*
+rust-server/target/
