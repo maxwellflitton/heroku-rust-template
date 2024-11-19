@@ -11,6 +11,7 @@ cd ..
 cd frontend
 npm install
 npm run build
-cd ../rust-server/networking/actix-server
+cd ..
 cargo clean
 cargo run
+cargo run -p actix-to-do-server --release

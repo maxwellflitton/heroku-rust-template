@@ -1,0 +1,11 @@
+[workspace]
+resolver = "2"
+
+members = [
+    "rust-server/core",
+    "rust-server/data-access-layer",
+    "rust-server/networking/actix-server",
+    "rust-server/networking/axum-server",
+    "rust-server/networking/rocket-server",
+    "rust-server/networking/hyper-server"
+]
