@@ -3,7 +3,10 @@ use actix_web::{
     web, App, HttpServer, Responder, HttpResponse, HttpRequest
 };
 use actix_cors::Cors;
+
+#[cfg(feature = "frontend")]
 use rust_embed::RustEmbed;
+
 use data_access_layer::migrations::run_migrations;
 use std::path::Path;
 
@@ -11,17 +14,20 @@ mod api;
 use api::views_factory;
 
 
+#[cfg(feature = "frontend")]
 async fn index() -> HttpResponse {
     HttpResponse::Ok().content_type("text/html")
                       .body(include_str!("../index.html"))
 }
 
 
+#[cfg(feature = "frontend")]
 #[derive(RustEmbed)]
 #[folder = "../../../frontend/dist"]
 struct FrontendAssets;
 
 
+#[cfg(feature = "frontend")]
 fn serve_frontend_asset(path: String) -> HttpResponse {
     let file = match Path::new(&path).file_name() {
         Some(file) => file.to_str().unwrap(),
@@ -41,6 +47,7 @@ fn serve_frontend_asset(path: String) -> HttpResponse {
 }
 
 
+#[cfg(feature = "frontend")]
 async fn catch_all(req: HttpRequest) -> impl Responder {
     if req.path().contains("/api/") {
         return HttpResponse::NotFound().finish()
@@ -59,6 +66,11 @@ async fn catch_all(req: HttpRequest) -> impl Responder {
     index().await
 }
 
+
+#[cfg(not(feature = "frontend"))]
+async fn catch_all(req: HttpRequest) -> impl Responder {
+    return HttpResponse::NotFound().finish()
+}
 
 #[tokio::main]
 async fn main() -> std::io::Result<()> {

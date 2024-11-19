@@ -4,11 +4,16 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-rust-embed = "8.5.0"
+rust-embed = { version = "8.5.0", optional = true}
 actix-cors = "0.7.0"
-mime_guess = "2.0.4"
+mime_guess = { version = "2.0.4", optional = true}
 actix-web = "4.5.1"
 tokio = { version = "1.35.0", features = ["macros", "rt-multi-thread"] }
 data-access-layer = { path = "../../data-access-layer", features = ["sqlx-postgres"]}
 core = { path = "../../core" }
 nanoservices-utils = { version = "0.1.6", features = ["actix"] }
+
+
+[features]
+frontend = ["rust-embed", "mime_guess"]
+default = ["frontend"]
