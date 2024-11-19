@@ -1,3 +1,4 @@
 rust-server/target/
+frontend/node_modules/
 Dockerfile
 .git
