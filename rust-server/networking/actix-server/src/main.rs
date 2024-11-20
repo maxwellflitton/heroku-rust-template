@@ -87,7 +87,7 @@ async fn main() -> std::io::Result<()> {
             .default_service(web::route()
             .to(catch_all))
     })
-        .bind("0.0.0.0:8001")?
+        .bind("0.0.0.0:80")?
         .run()
         .await
 }
